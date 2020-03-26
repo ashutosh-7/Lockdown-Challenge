@@ -1,0 +1,55 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long int
+#define pb push_back
+#define translow transform(s.begin(),s.end(),s.begin(),::tolower);
+#define transup transform(s.begin(),s.end(),s.begin(),::toupper);
+#define endl "\n"
+#define fast ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+ll mod=1e9+7;
+ 
+ 
+int main() {
+				fast
+                #ifndef ONLINE_JUDGE
+                freopen("input.txt","r",stdin);
+                freopen("output.txt","w",stdout);
+                #endif
+
+                ll t;
+                cin>>t;
+                while(t--)
+                {
+
+                	ll n,k;
+                	cin>>n>>k;
+                    ll x=0;
+                    ll a,b;
+                	for(ll i=1;i<=n;i++)
+                    {
+                        // x+=i;
+                        ll y=(i*(i+1))/2;
+                        if(y>=k)
+                        {
+                            ll temp=((i-1)*(i))/2;
+                            a=k-temp;
+                            b=i+1;
+                            //cout<<i<<" "<<a<<" "<<b<<endl;
+                            break;
+                        }
+                    }
+                    a=n-a+1;
+                    b=n-b+1;
+                   // cout<<a<<" "<<b<<endl;
+                    for(ll i=1;i<=n;i++)
+                    {
+                        if(i==a or i==b)
+                            cout<<'b';
+                        else
+                            cout<<'a';
+                    }
+                    cout<<endl;
+                }
+
+                return 0;
+            }
