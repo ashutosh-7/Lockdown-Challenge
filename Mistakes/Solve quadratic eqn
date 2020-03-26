@@ -1,0 +1,47 @@
+https://codeforces.com/contest/1328/problem/B
+
+
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long int
+#define pb push_back
+#define translow transform(s.begin(),s.end(),s.begin(),::tolower);
+#define transup transform(s.begin(),s.end(),s.begin(),::toupper);
+#define endl "\n"
+#define fast ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+ll mod=1e9+7;
+ 
+ 
+int main() {
+				fast
+                #ifndef ONLINE_JUDGE
+                freopen("input.txt","r",stdin);
+                freopen("output.txt","w",stdout);
+                #endif
+
+
+                ll t;
+                cin>>t;
+                while(t--){
+                ll k,n;
+                cin>>n>>k;
+                ll x=(ceil)((-1.0+sqrt(1.0+8.0*(double)(k)))/2.0);
+                ll b=x;
+                ll a=k-((x-1)*(x))/2-1;
+                string s="";
+                for(ll i=0;i<n;i++)
+                {
+                    if(i==a or i==b)
+                        s+='b';
+                    else
+                        s+='a';
+                }
+                reverse(s.begin(),s.end());
+                cout<<s<<endl;  
+
+            }
+
+                return 0;
+            }
+            
+            
