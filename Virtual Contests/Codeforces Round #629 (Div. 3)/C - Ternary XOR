@@ -21,98 +21,52 @@ int main() {
                 while(t--)
                 {
                     ll n;
-                    string s;
+                	string s,s1="",s2="";
                     cin>>n>>s;
-                    string a="",b="";
-                    string s1,s2,s11,s22;
-                    
-                    ll ga=0;
+                    ll x=0;
                     for(ll i=0;i<n;i++)
                     {
                         if(s[i]=='0')
                         {
-                                a+="0";
-                                b+='0';
+                            s1+='0';
+                            s2+='0';
+
                         }
                         else if(s[i]=='1')
-                        {   
-
-                            if(a>b)
+                        {
+                            if(x==0)
                             {
-                                b+='1';
-                                a+='0';
-                            }
-                            else if(a<b)
-                            {
-                                 a+='1';
-                                b+='0';
+                                s1+='1';
+                                s2+='0';
+                                x=1;   
                             }
                             else
                             {
-                                 b+='1';
-                                a+='0';
+                                s2+='1';
+                                s1+='0';
+                               
                             }
 
-                            
                         }
                         else
                         {
-
-                            s1=a+'2';
-                            s2=b+'0';
-                            s11=a+'0';
-                            s22=b+'2';
-                            string s3=a+'1';
-                            string s33=b+'1';
-                            string m1,m2,m3;
-                            // cout<<a<<"   "<<b<<endl<<s1<<" "<<s2<<" "<<s11<<" "<<s22<<" "<<s3<<" "<<s33<<endl;
-                            if(s1>s2)
-                                m1=s1;
-                            else m1=s2;
-                            if(s11>s22)
-                                m2=s11;
+                            if(x==0)
+                            {
+                                s1+='1';
+                                s2+='1';
+                            }
                             else
-                                m2=s22;
-                            if(s3>s33)
-                                m3=s3;
-                            else
-                                m3=s33;
-                                
-                                        if(m1<m2 and m1<m3)
-                                        {
-                                            a=s1;
-                                            b=s2;
-                                        }
-                                        else if(m2<m1 and m2<m3)
-                                        {
-                                            a=s2;
-                                            b=s22;
-                                        }
-                                        else
-                                        {
-                                            a=s3;
-                                            b=s33;
-                                        }
-                                    
-
-
-
-                                // else if(a>b)
-                                // {
-
-                                //     a+='0';
-                                //     b+='2';
-                                // }
-                                // else
-                                // {
-                                //     a+='2';
-                                //     b+='0';
-                                // }
+                            {
+                                s1+='0';
+                                s2+='2';
+                            }
                         }
-                    }
-                    // cout<<a<<endl;
-                    // cout<<"kjghj";
-                     cout<<a<<endl<<b<<endl;
+
+
+
+                        }
+                        cout<<s1<<endl<<s2<<endl;
+
                 }
 
                 return 0;
