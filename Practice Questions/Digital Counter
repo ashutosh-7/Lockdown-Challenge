@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long int
+#define pb push_back
+#define translow transform(s.begin(),s.end(),s.begin(),::tolower);
+#define transup transform(s.begin(),s.end(),s.begin(),::toupper);
+#define endl "\n"
+#define fast ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+ll mod=1e9+7;
+    
+ 
+int main() {
+				fast
+                #ifndef ONLINE_JUDGE
+                freopen("input.txt","r",stdin);
+                freopen("output.txt","w",stdout);
+                #endif
+                ll arr[10]={2,7,2,3,3,4,2,5,1,2};
+                ll x;
+                cin>>x;
+                ll a=arr[x%10];
+                x/=10;
+                a*=arr[x%10];
+                cout<<a;
+
+                return 0;
+            }
