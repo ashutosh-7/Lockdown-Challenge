@@ -1,0 +1,105 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long int
+#define pb push_back
+#define translow transform(s.begin(),s.end(),s.begin(),::tolower);
+#define transup transform(s.begin(),s.end(),s.begin(),::toupper);
+#define endl "\n"
+#define fast ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+ll mod=1e9+7;
+vector<ll>parent;
+    
+        ll find(ll n)
+        {
+            if(parent[n]==n)
+                return parent[n];
+            return parent[n]=find(parent[n]);
+        }
+        ll add(ll a,ll b)
+        {
+            a=find(a);
+            b=find(b);
+            parent[a]=b;
+        }
+ 
+ 
+int main() {
+				fast
+                #ifndef ONLINE_JUDGE
+                freopen("input.txt","r",stdin);
+                freopen("output.txt","w",stdout);
+                #endif
+
+                ll t;
+                cin>>t;
+                while(t--)
+                {
+                    ll n,k;
+                    cin>>n>>k;
+
+                    parent.resize(n+1);
+                    for(ll i=0;i<n;i++)
+                        parent[i]=i;
+
+                    string s;
+                    cin>>s;
+                    for(ll i=0;i<n/2;i++)
+                    {
+                        add(i,n-i-1);
+                    }
+
+                       
+                    for(ll i=0;i<n-k;i++)
+                    {
+                        add(i,k+i);
+                    }
+                   
+                    ll count[n][26];
+                    for(ll i=0;i<n;i++)
+                        for(ll j=0;j<26;j++)
+                            count[i][j]=0;
+
+                        for(ll i=0;i<n;i++)
+                        {
+                            ll id=find(i);
+                            count[id][s[i]-'a']+=1;
+                        }
+                        // for(ll i=0;i<n;i++)
+                        // {
+                        //     for(ll j=0;j<26;j++)
+                        //         cout<<count[find(i)][j]<<" ";
+                        //     cout<<endl;
+                        // }
+                        // cout<<endl;
+                        ll ans=0;
+
+                        // for(ll i=0;i<n;i++)
+                        // {
+                        //     cout<<find(i)<<" ";
+                        // }
+
+                        ll visit[n]={0};
+                        for(ll i=0;i<n;i++)
+                        {
+                            if(find(i)!=i and visit[find(i)]==0)
+                            {
+                                ll mx=0;
+                                for(ll j=0;j<26;j++)
+                                {
+                                    mx=max(mx,count[find(i)][j]);
+                                }
+                                visit[find(i)]=1;
+                                ans+=mx;
+                            }
+                        }
+
+                   cout<<n-ans<<endl;
+
+                }
+
+                
+
+
+
+                return 0;
+            }
